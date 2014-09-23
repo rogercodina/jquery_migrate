@@ -1,0 +1,6 @@
+name = jQuery Migrate
+description = Adds jquery migrate plugin.
+package = Administration
+core = 7.x
+
+configure = admin/config/user-interface/jquery-migrate

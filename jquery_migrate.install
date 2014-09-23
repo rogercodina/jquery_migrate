@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Install and uninstall handling of module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function jquery_migrate_uninstall() {
+  variable_del('jquery_migrate_activate_on');
+}
