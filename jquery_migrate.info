@@ -1,6 +1,7 @@
 name = jQuery Migrate
-description = Adds jquery migrate plugin.
+description = Adds jquery migrate plugin to avoid jquery problems with newer versions of jQuery.
 package = Administration
 core = 7.x
+dependencies[] = jquery_update
 
 configure = admin/config/user-interface/jquery-migrate

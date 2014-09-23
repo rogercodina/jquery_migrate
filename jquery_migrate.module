@@ -32,10 +32,10 @@ function jquery_migrate_init() {
   $admin_values = array(0, 2);
   $where = variable_get('jquery_migrate_activate_on', 2);
 
-  if(drupal_is_front_page() && in_array($where, $front_values)) {
+  if (drupal_is_front_page() && in_array($where, $front_values)) {
     jquery_migrate_add_library();
   }
-  else if(path_is_admin(current_path()) && in_array($where, $admin_values)) {
+  else if (path_is_admin(current_path()) && in_array($where, $admin_values)) {
     jquery_migrate_add_library();
   }
 }
@@ -46,5 +46,37 @@ function jquery_migrate_init() {
  */
 function jquery_migrate_add_library() {
   $options = array('type' => 'external', 'weight' => -17);
-  drupal_add_js('http://code.jquery.com/jquery-migrate-1.2.1.min.js', $options);
+  $minified = variable_get('jquery_migrate_use_mini_js', 0);
+
+  if ($minified) {
+    drupal_add_js('http://code.jquery.com/jquery-migrate-1.2.1.min.js', $options);  
+  }
+  else {
+    drupal_add_js('http://code.jquery.com/jquery-migrate-1.2.1.js', $options);
+  }
+}
+
+/**
+ * Implements hook_help().
+ *
+ * Some help for users.
+ */
+function jquery_migrate_help($path, $arg) {
+  switch ($path) {
+    case 'admin/setting/jquery-migrate':
+
+      $out = 'This module adds jquery migrate plugin to avoid javascript errors with newer versions of jQuery. Only use migrate plugin for jQuery versions from 1.7 up to 1.10. Go to admin/config/user-interface/jquery-migrate to configurate this module.';
+      break;
+
+    case 'admin/help#jquery-migrate';
+
+      $out = '<p>This module adds jquery migrate plugin to avoid javascript errors with newer versions of jQuery. Only use migrate plugin for jQuery versions from 1.7 up to 1.10. Go to admin/config/user-interface/jquery-migrate to configurate this module.</p>';
+      break;
+
+    default:
+      $out = '';
+      break;
+
+  }
+  return $out;
 }

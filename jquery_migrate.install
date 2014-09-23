@@ -10,4 +10,5 @@
  */
 function jquery_migrate_uninstall() {
   variable_del('jquery_migrate_activate_on');
+  variable_del('jquery_migrate_use_mini_js');
 }
