@@ -30,7 +30,7 @@ function jquery_migrate_admin_settings($form, &$form_state) {
 
   $form['from'] = array(
     '#type' => 'item',
-    '#markup' => '<strong>' . t('Important note:') . '</strong> ' . t('Activate only for jQuery versions from 1.7 up to 1.10.'),
+    '#markup' => '<strong>' . t('Important note:') . '</strong> ' . t('Enable migrate plugin only for jQuery versions from 1.7 up to 1.10.'),
   );
 
   return system_settings_form($form);
