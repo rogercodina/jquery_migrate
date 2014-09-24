@@ -4,4 +4,4 @@ package = Administration
 core = 7.x
 dependencies[] = jquery_update
 
-configure = admin/config/user-interface/jquery-migrate
+configure = admin/config/development/jquery-migrate

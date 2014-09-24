@@ -11,7 +11,7 @@
 function jquery_migrate_menu() {
   $items = array();
 
-  $items['admin/config/user-interface/jquery-migrate'] = array(
+  $items['admin/config/development/jquery-migrate'] = array(
     'title' => 'jQuery migrate',
     'description' => 'Change jquery migrate configuration',
     'page callback' => 'drupal_get_form',
